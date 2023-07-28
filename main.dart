@@ -26,4 +26,24 @@ class Word {
       throw e;
     }
   }
+
+  @override
+  bool operator ==(Object? other) {
+    return other is Word && other.word == word;
+  }
+
+  @override
+  int get hashCode => word.hashCode;
+
+  @override
+  String toString() => 'Word(word: $word)';
+
+  Word copyWith({String? word}) {
+    return Word(word ?? this.word);
+  }
+
+  @override
+  noSuchMethod(Invocation invocation) {
+    throw Exception('${invocation.memberName} - dont have this metod!');
+  }
 }
