@@ -27,6 +27,27 @@ class Word {
     }
   }
 
+  String reverseVowels() {
+    List<String> reverseList = [];
+    List<String> resultList = word.split('');
+    String result = '';
+    for (String i in resultList) {
+      if (RegExp(r'[aeiou]').hasMatch(i)) {
+        reverseList.add(i);
+        resultList[resultList.indexOf(i)] = '-';
+      }
+    }
+    resultList.forEach((element) {
+      if (element == '-') {
+        result += reverseList.last.toString();
+        reverseList.removeLast();
+      } else {
+        result += element;
+      }
+    });
+    return result;
+  }
+
   @override
   bool operator ==(Object? other) {
     return other is Word && other.word == word;
