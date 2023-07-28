@@ -68,3 +68,14 @@ class Word {
     throw Exception('${invocation.memberName} - dont have this metod!');
   }
 }
+
+void main(List<String> args) {
+  Word testWord = Word.replace(newWord: 'hello');
+
+  Word testWord2 = testWord.copyWith(word: 'leetcode');
+
+  print(testWord.hashCode);
+  print(testWord2.toString());
+  print(testWord == testWord2);
+  print(testWord2.reverseVowels());
+}
